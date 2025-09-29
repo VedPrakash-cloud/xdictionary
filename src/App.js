@@ -23,23 +23,23 @@ function App() {
 
     const handleClick = ()=>{
       const findMeaning = Dictionary.find(
-        (text=> text.word.toLowerCase() === search.toLowerCase())
+        (text=> text.word === search)
       )
 
       if(findMeaning){
         setMeaning(`${findMeaning.meaning}`)
       }else{
-        setMeaning(`Word not found in the dictionary`)
+        setMeaning("Word not found in the dictionary.")
       }
     }
 
   return (
     <div className="App">
       <h1>Dictionary App</h1>
-      <input value={search} onChange={handleSearch} placeholder='Search for a word...'/>
+      <input type='text' value={search} onChange={handleSearch} placeholder='Search for a word...'/>
       <button type='submit' onClick={handleClick}>Search</button>
-      <h5>Definition</h5>
-      {meaning}
+      <h3>Definition:</h3>
+      <p>{meaning}</p>
     </div>
   );
 }

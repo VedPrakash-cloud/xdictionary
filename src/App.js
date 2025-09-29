@@ -22,8 +22,9 @@ function App() {
     }
 
     const handleClick = ()=>{
+      const input = search.trim().toLowerCase();
       const findMeaning = Dictionary.find(
-        (text=> text.word === search)
+        (text=> text.word.toLowerCase() === input)
       )
 
       if(findMeaning){
@@ -39,7 +40,7 @@ function App() {
       <input type='text' value={search} onChange={handleSearch} placeholder='Search for a word...'/>
       <button type='submit' onClick={handleClick}>Search</button>
       <h3>Definition:</h3>
-      {meaning}
+      <p>{meaning}</p>
     </div>
   );
 }
